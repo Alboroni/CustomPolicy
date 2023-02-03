@@ -1,0 +1,48 @@
+{
+ "properties": {
+  "displayName": "Deny storage accounts not using only HTTPS",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Deny storage accounts not using only HTTPS. Checks the supportsHttpsTrafficOnly property on StorageAccounts",
+  "metadata": {
+   "createdBy": "6fbe428d-4742-4399-856d-ac2d719023a2",
+   "createdOn": "2023-01-23T11:08:07.7283196Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effectType": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "field": "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly",
+      "notEquals": "true"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effectType')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/AlexYoTop/providers/Microsoft.Authorization/policyDefinitions/760893b4-49e4-49ec-9990-7d59075bb73f",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "760893b4-49e4-49ec-9990-7d59075bb73f"
+}
