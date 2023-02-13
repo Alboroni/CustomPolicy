@@ -1,0 +1,150 @@
+{
+ "properties": {
+  "displayName": "Azure Diagnostics Policy Initiative for Splunk Event Hub",
+  "policyType": "Custom",
+  "description": "This initiative configures application Azure resources to forward diagnostic logs and metrics to an Azure Diagnostics sink point.",
+  "metadata": {
+   "category": "Monitoring",
+   "createdBy": "922f3618-29eb-402a-b3d5-152a3f2c1099",
+   "createdOn": "2020-08-19T11:36:26.8505015Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "profileName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Profile Name for Config",
+     "description": "The profile name Azure Diagnostics"
+    }
+   },
+   "eventHubName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "EventHub Name",
+     "description": "The event hub for Azure Diagnostics",
+     "strongType": "Microsoft.EventHub/Namespaces/EventHubs",
+     "assignPermissions": true
+    }
+   },
+   "eventHubRuleId": {
+    "type": "String",
+    "metadata": {
+     "displayName": "EventHubRuleID",
+     "description": "The event hub RuleID for Azure Diagnostics",
+     "strongType": "Microsoft.EventHub/Namespaces/AuthorizationRules",
+     "assignPermissions": true
+    }
+   },
+   "azureRegions": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed Locations",
+     "description": "The list of locations that can be specified when deploying resources",
+     "strongType": "location"
+    }
+   },
+   "metricsEnabled": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Enable Metrics",
+     "description": "Enable Metrics - True or False"
+    },
+    "allowedValues": [
+     "True",
+     "False"
+    ],
+    "defaultValue": "False"
+   },
+   "logsEnabled": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Enable Logs",
+     "description": "Enable Logs - True or False"
+    },
+    "allowedValues": [
+     "True",
+     "False"
+    ],
+    "defaultValue": "True"
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "18357216510998200466",
+    "policyDefinitionId": "/subscriptions/db99463c-2a00-433c-a39b-f63083b719a4/providers/Microsoft.Authorization/policyDefinitions/A08C4E65AC3520BF59E8CEC50B5021ED",
+    "parameters": {
+     "eventHubName": {
+      "value": "[parameters('eventHubName')]"
+     },
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubRuleId')]"
+     },
+     "azureRegions": {
+      "value": "[parameters('azureRegions')]"
+     },
+     "metricsEnabled": {
+      "value": "[parameters('metricsEnabled')]"
+     },
+     "logsEnabled": {
+      "value": "[parameters('logsEnabled')]"
+     },
+     "profileName": {
+      "value": "[parameters('profileName')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "10233286507096621639",
+    "policyDefinitionId": "/subscriptions/db99463c-2a00-433c-a39b-f63083b719a4/providers/Microsoft.Authorization/policyDefinitions/BA63310A9664D2D3944345C35DC04C04",
+    "parameters": {
+     "eventHubName": {
+      "value": "[parameters('eventHubName')]"
+     },
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubRuleId')]"
+     },
+     "azureRegions": {
+      "value": "[parameters('azureRegions')]"
+     },
+     "metricsEnabled": {
+      "value": "[parameters('metricsEnabled')]"
+     },
+     "logsEnabled": {
+      "value": "[parameters('logsEnabled')]"
+     },
+     "profileName": {
+      "value": "[parameters('profileName')]"
+     }
+    }
+   },
+   {
+    "policyDefinitionReferenceId": "16417081669306881773",
+    "policyDefinitionId": "/subscriptions/db99463c-2a00-433c-a39b-f63083b719a4/providers/Microsoft.Authorization/policyDefinitions/646F62950D2FC86CB224C9DE9C22B3E8",
+    "parameters": {
+     "eventHubName": {
+      "value": "[parameters('eventHubName')]"
+     },
+     "eventHubRuleId": {
+      "value": "[parameters('eventHubRuleId')]"
+     },
+     "azureRegions": {
+      "value": "[parameters('azureRegions')]"
+     },
+     "metricsEnabled": {
+      "value": "[parameters('metricsEnabled')]"
+     },
+     "logsEnabled": {
+      "value": "[parameters('logsEnabled')]"
+     },
+     "profileName": {
+      "value": "[parameters('profileName')]"
+     }
+    }
+   }
+  ]
+ },
+ "id": "/subscriptions/db99463c-2a00-433c-a39b-f63083b719a4/providers/Microsoft.Authorization/policySetDefinitions/D22BFB4F6FE5542B20B49366666AB831",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "D22BFB4F6FE5542B20B49366666AB831"
+}
